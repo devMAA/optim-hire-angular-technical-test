@@ -1,0 +1,23 @@
+<div class="container characters">
+    <div class="name-search row">
+        <div class="col-md-11">
+            <input name="name-search" id="name-search" placeholder="Search By Name" type="text" class="form-control" autocomplete="off" [(ngModel)]="searchTerm" />
+        </div>
+        <!-- <div class="col-md-1"><button type="button" class="btn btn-primary" (click)="getCharacters(1)">Search</button> -->
+
+    </div>
+    <div class="table-responsive">
+
+        <div class="cards centerd" *ngIf="locations">
+            <div class="card episode" *ngFor="let location of locations | searchFilter:searchTerm" [routerLink]="['/location', location.id]">
+                <div class="container">
+                    <h4>Location Name : <b>{{location.name}}</b></h4>
+                    <p>Location Type : {{location.type}}</p>
+                    <p>Location Dimension : {{location.dimension}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

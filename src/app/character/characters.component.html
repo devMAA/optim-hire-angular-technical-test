@@ -1,0 +1,23 @@
+<div class="container characters">
+    <div class="name-search row">
+        <div class="col-md-11">
+            <input name="name-search" id="name-search" placeholder="Search By Name" type="text" class="form-control" autocomplete="off" [(ngModel)]="searchTerm" />
+        </div>
+
+    </div>
+
+    <div class="cards" *ngIf="characters">
+
+        <div class="card" *ngFor="let c of characters | searchFilter:searchTerm" [routerLink]="['/character', c.id]">
+            <img [src]=c.image alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4>Name : <b>{{c.name}}</b></h4>
+                <p>Species : {{c.species}}</p>
+                <p>Status : {{c.status}}</p>
+                <p>Gender : {{c.gender}}</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
